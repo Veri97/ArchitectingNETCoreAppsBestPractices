@@ -2,6 +2,7 @@
 using TicketApp.TicketManagement.Application.Features.Categories.Queries.GetCategoriesList;
 using TicketApp.TicketManagement.Application.Features.Categories.Queries.GetCategoriesListWithEvents;
 using TicketApp.TicketManagement.Application.Features.Events.Commands.CreateEvent;
+using TicketApp.TicketManagement.Application.Features.Events.Commands.UpdateEvent;
 using TicketApp.TicketManagement.Application.Features.Events.Queries.GetEventDetail;
 using TicketApp.TicketManagement.Application.Features.Events.Queries.GetEventList;
 using TicketApp.TicketManagement.Domain.Entities;
@@ -20,6 +21,7 @@ namespace TicketApp.TicketManagement.Application.Profiles
             CreateMap<Category, CategoryEventListVm>();
 
             CreateMap<Event, CreateEventCommand>().ReverseMap();
+            CreateMap<Event, UpdateEventCommand>().ReverseMap();
 
         }
     }

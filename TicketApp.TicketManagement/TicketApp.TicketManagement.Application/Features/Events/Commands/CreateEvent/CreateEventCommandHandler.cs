@@ -22,7 +22,7 @@ namespace TicketApp.TicketManagement.Application.Features.Events.Commands.Create
 
         public async Task<Guid> Handle(CreateEventCommand request, CancellationToken cancellationToken)
         {
-            var validator = new CreateEventCommandValidator();
+            var validator = new CreateEventCommandValidator(_eventRepository);
             var validationResult = await validator.ValidateAsync(request);
 
             if (validationResult.Errors.Count > 0)

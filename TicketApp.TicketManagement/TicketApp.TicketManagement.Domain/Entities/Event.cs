@@ -14,6 +14,5 @@ namespace TicketApp.TicketManagement.Domain.Entities
         public string ImageUrl { get; set; }
         public Guid CategoryId { get; set; }
         public Category Category { get; set; }
-
     }
 }

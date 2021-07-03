@@ -38,6 +38,5 @@ namespace TicketApp.TicketManagement.Application.Features.Events.Commands.Create
         {
             return !(await _eventRepository.IsEventNameAndDateUnique(e.Name, e.Date));
         }
-
     }
 }

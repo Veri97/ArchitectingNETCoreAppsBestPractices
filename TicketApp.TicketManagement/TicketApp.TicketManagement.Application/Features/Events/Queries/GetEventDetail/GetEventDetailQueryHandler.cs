@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using TicketApp.TicketManagement.Application.Contracts.Persistence;
-//using TicketApp.TicketManagement.Application.Exceptions;
+using TicketApp.TicketManagement.Application.Exceptions;
 using TicketApp.TicketManagement.Domain.Entities;
 using MediatR;
 using System.Threading;
@@ -31,7 +31,7 @@ namespace TicketApp.TicketManagement.Application.Features.Events.Queries.GetEven
 
             if (category == null)
             {
-                //throw new NotFoundException(nameof(Event), request.Id);
+                throw new NotFoundException(nameof(Event), request.Id);
             }
             eventDetailDto.Category = _mapper.Map<CategoryDto>(category);
 

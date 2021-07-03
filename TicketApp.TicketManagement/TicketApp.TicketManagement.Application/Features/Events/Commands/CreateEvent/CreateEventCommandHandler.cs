@@ -1,11 +1,10 @@
 ﻿using AutoMapper;
 using MediatR;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using TicketApp.TicketManagement.Application.Contracts.Persistence;
+using TicketApp.TicketManagement.Application.Exceptions;
 using TicketApp.TicketManagement.Domain.Entities;
 
 namespace TicketApp.TicketManagement.Application.Features.Events.Commands.CreateEvent
@@ -23,6 +22,12 @@ namespace TicketApp.TicketManagement.Application.Features.Events.Commands.Create
 
         public async Task<Guid> Handle(CreateEventCommand request, CancellationToken cancellationToken)
         {
+            var validator = new CreateEventCommandValidator();
+            var validationResult = await validator.ValidateAsync(request);
+
+            if (validationResult.Errors.Count > 0)
+                throw new ValidationException(validationResult);
+
             var @event = _mapper.Map<Event>(request);
 
             @event = await _eventRepository.AddAsync(@event);

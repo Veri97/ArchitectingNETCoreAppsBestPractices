@@ -23,6 +23,7 @@ namespace TicketApp.TicketManagement.Persistence.Repositories
                                                   && o.OrderPlaced.Year == date.Year)
                                                .Skip((page - 1) * size)
                                                .Take(size)
+                                               .AsNoTracking()
                                                .ToListAsync();
 
             return pagedOrders;

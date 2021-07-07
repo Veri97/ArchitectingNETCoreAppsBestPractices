@@ -15,13 +15,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{B268554A-C9BE-47AA-9017-7CC7EE37DBEF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketApp.TicketManagement.Domain", "TicketApp.TicketManagement.Domain\TicketApp.TicketManagement.Domain.csproj", "{51EDA031-002B-4A29-AB0B-2F610EB98B7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketApp.TicketManagement.Domain", "src\Core\TicketApp.TicketManagement.Domain\TicketApp.TicketManagement.Domain.csproj", "{51EDA031-002B-4A29-AB0B-2F610EB98B7D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketApp.TicketManagement.Application", "TicketApp.TicketManagement.Application\TicketApp.TicketManagement.Application.csproj", "{E5EDFB37-BBF6-41C7-878C-8440C743A4F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketApp.TicketManagement.Application", "src\Core\TicketApp.TicketManagement.Application\TicketApp.TicketManagement.Application.csproj", "{E5EDFB37-BBF6-41C7-878C-8440C743A4F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketApp.TicketManagement.Persistence", "TicketApp.TicketManagement.Persistence\TicketApp.TicketManagement.Persistence.csproj", "{C11CFF60-D654-4158-B997-44A9A9C5AC7C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketApp.TicketManagement.Persistence", "src\Infrastructure\TicketApp.TicketManagement.Persistence\TicketApp.TicketManagement.Persistence.csproj", "{C11CFF60-D654-4158-B997-44A9A9C5AC7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketApp.TicketManagement.Infrastructure", "TicketApp.TicketManagement.Infrastructure\TicketApp.TicketManagement.Infrastructure.csproj", "{778DCAA0-0CC6-4128-B66B-741B8B569121}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketApp.TicketManagement.Infrastructure", "src\Infrastructure\TicketApp.TicketManagement.Infrastructure\TicketApp.TicketManagement.Infrastructure.csproj", "{778DCAA0-0CC6-4128-B66B-741B8B569121}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

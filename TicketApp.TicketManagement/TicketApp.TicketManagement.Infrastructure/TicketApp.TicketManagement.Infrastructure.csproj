@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\TicketApp.TicketManagement.Application\TicketApp.TicketManagement.Application.csproj" />
+    <ProjectReference Include="..\TicketApp.TicketManagement.Application\TicketApp.TicketManagement.Application.csproj" />
   </ItemGroup>
 
 </Project>

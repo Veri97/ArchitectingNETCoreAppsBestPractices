@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TicketApp.TicketManagement.Application\TicketApp.TicketManagement.Application.csproj" />
+    <ProjectReference Include="..\TicketApp.TicketManagement.Infrastructure\TicketApp.TicketManagement.Infrastructure.csproj" />
+    <ProjectReference Include="..\TicketApp.TicketManagement.Persistence\TicketApp.TicketManagement.Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
+</Project>

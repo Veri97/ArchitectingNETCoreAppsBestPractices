@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using TicketApp.TicketManagement.Application.Contracts.Infrastructure;
 using TicketApp.TicketManagement.Application.Models.Mail;
+using TicketApp.TicketManagement.Infrastructure.FileExport;
 using TicketApp.TicketManagement.Infrastructure.Mail;
 
 namespace TicketApp.TicketManagement.Infrastructure
@@ -17,6 +18,8 @@ namespace TicketApp.TicketManagement.Infrastructure
             services.Configure<EmailSettings>(configuration.GetSection("EmailSettings"));
 
             services.AddTransient<IEmailService, EmailService>();
+
+            services.AddTransient<ICsvExporter, CsvExporter>();
 
             return services;
         }

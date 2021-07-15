@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TicketApp.TicketManagement.Application.Features.Events.Queries.GetEventList;
+using TicketApp.TicketManagement.Application.Features.Events.Queries.GetEventsExport;
 
 namespace TicketApp.TicketManagement.Api.Controllers
 {
@@ -65,6 +66,14 @@ namespace TicketApp.TicketManagement.Api.Controllers
             var deleteEventCommand = new DeleteEventCommand() { EventId = id };
             await _mediator.Send(deleteEventCommand);
             return NoContent();
+        }
+
+        [HttpGet("export",Name = "ExportEvents")]
+        public async Task<FileResult> ExportEvents()
+        {
+            var fileDto = await _mediator.Send(new GetEventsExportQuery());
+
+            return File(fileDto.Data, fileDto.ContentType, fileDto.EventExportFileName);
         }
 
     }

@@ -6,6 +6,7 @@ using TicketApp.TicketManagement.Application.Features.Events.Commands.CreateEven
 using TicketApp.TicketManagement.Application.Features.Events.Commands.UpdateEvent;
 using TicketApp.TicketManagement.Application.Features.Events.Queries.GetEventDetail;
 using TicketApp.TicketManagement.Application.Features.Events.Queries.GetEventList;
+using TicketApp.TicketManagement.Application.Features.Events.Queries.GetEventsExport;
 using TicketApp.TicketManagement.Domain.Entities;
 
 namespace TicketApp.TicketManagement.Application.Profiles
@@ -19,6 +20,7 @@ namespace TicketApp.TicketManagement.Application.Profiles
             CreateMap<Event, UpdateEventCommand>().ReverseMap();
             CreateMap<Event, EventDetailVm>().ReverseMap();
             CreateMap<Event, CategoryEventDto>().ReverseMap();
+            CreateMap<Event, EventExportDto>().ReverseMap();
 
             CreateMap<Category, CategoryDto>();
             CreateMap<Category, CategoryListVm>();

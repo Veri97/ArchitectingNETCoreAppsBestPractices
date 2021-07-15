@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using TicketApp.TicketManagement.Application.Features.Events.Queries.GetEventList;
 using TicketApp.TicketManagement.Application.Features.Events.Queries.GetEventsExport;
+using TicketApp.TicketManagement.Api.Utility;
 
 namespace TicketApp.TicketManagement.Api.Controllers
 {
@@ -69,6 +70,7 @@ namespace TicketApp.TicketManagement.Api.Controllers
         }
 
         [HttpGet("export",Name = "ExportEvents")]
+        [FileResultContentType("text/csv")]
         public async Task<FileResult> ExportEvents()
         {
             var fileDto = await _mediator.Send(new GetEventsExportQuery());

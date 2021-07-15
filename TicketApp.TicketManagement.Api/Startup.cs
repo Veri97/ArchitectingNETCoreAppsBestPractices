@@ -4,10 +4,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TicketApp.TicketManagement.Api.Utility;
 using TicketApp.TicketManagement.Application;
 using TicketApp.TicketManagement.Infrastructure;
 using TicketApp.TicketManagement.Persistence;
@@ -26,6 +28,7 @@ namespace TicketApp.TicketManagement.Api
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            AddSwagger(services);
             services.AddApplicationServices();
             services.AddInfrastructureServices(Configuration);
             services.AddPersistenceServices(Configuration);
@@ -34,6 +37,21 @@ namespace TicketApp.TicketManagement.Api
             services.AddCors(options =>
             {
                 options.AddPolicy("Open", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            });
+        }
+
+        private void AddSwagger(IServiceCollection services)
+        {
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Ticket Management API"
+                });
+
+                //add filter for fileresult content type
+                c.OperationFilter<FileResultContentTypeOperationFilter>();
             });
         }
 
@@ -47,6 +65,12 @@ namespace TicketApp.TicketManagement.Api
 
             app.UseHttpsRedirection();
             app.UseRouting();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Ticket Management API");
+            });
 
             app.UseCors("Open");
 

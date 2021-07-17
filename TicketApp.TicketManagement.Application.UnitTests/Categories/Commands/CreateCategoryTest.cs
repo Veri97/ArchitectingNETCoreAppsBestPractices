@@ -44,7 +44,7 @@ namespace TicketApp.TicketManagement.Application.UnitTests.Categories.Commands
         }
 
         [Fact]
-        public async Task Handle_NonValidCategory_EmptyCategoryNameOrLongerThan50Characters()
+        public async Task Handle_NonValidCategory_WhenCategoryNameIsEmptyOrTooLong()
         {
             var handler = new CreateCategoryCommandHandler(_mapper, _mockCategoryRepository.Object);
 

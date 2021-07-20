@@ -39,7 +39,8 @@ namespace TicketApp.TicketManagement.Application.UnitTests.Categories.Queries
 
             var result = await handler.Handle(new GetCategoriesListWithEventsQuery(), CancellationToken.None);
 
-            _mockCategoryRepository.Verify(x => x.GetCategoriesWithEvents(false));
+            bool includePastEvents = false;
+            _mockCategoryRepository.Verify(x => x.GetCategoriesWithEvents(includePastEvents));
 
             result.ShouldBeOfType<List<CategoryEventListVm>>();
 
